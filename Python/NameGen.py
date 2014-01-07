@@ -138,6 +138,8 @@ class simpleapp_tk(Tkinter.Tk):
 ### MAIN
 if __name__ == "__main__":
 	# get current directory (cwd) to search for files in
+	os.chdir("..")
+	os.chdir("Names/")
 	CurDir = os.getcwd()
 	ListOfNewTypes = []
 	i = 0														# count types found
