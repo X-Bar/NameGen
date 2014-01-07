@@ -1,0 +1,272 @@
+Alziari
+Amyot
+Bauge
+Berard
+Berenger
+Blouet
+Bonet
+Borel
+Capet
+Chabot
+Coeur
+Corbet
+Crespin
+Cul de Louf
+d_Acier
+d_Aguilers
+d_Albon
+d_Albret
+d_Alencon
+d_Alsace
+d_Angouleme
+d_Anjou
+d_Aquitaine
+d_Arc
+d_Arcy
+d_Arles
+d_Armagnac
+d_Artevelde
+d_Artois
+d_Astarac
+d_Auberville
+d_Aubigny
+d_Aubusson
+d_Audrehem
+d_Aumale
+d_Aurillac
+d_Auvergne
+d_Eu
+d_Houdetot
+d_Ivry
+d_Oiselet
+d_Oisy
+d_Orleans
+de Bailleul
+de Bar
+de Baudricourt
+de Bazentin
+de Bearn
+de Beauharnais
+de Beaujeu
+de Beauvais
+de Bellay
+de Besancon
+de Bethune
+de Blanchefort
+de Blois
+de Bouillon
+de Boulogne
+de Bourbon
+de Bourges
+de Bourgogne
+de Brabant
+de Breze
+de Brie
+de Brienne
+de Brosse
+de Broyes
+de Burlats
+de Carcassonne
+de Carrouges
+de Cervolles
+de Chabannes
+de Champagne
+de Chandos
+de Chargny
+de Chartres
+de Chatelmorant
+de Chatillon
+de Chaumont
+de Chauvigny
+de Clairvaux
+de Clermont
+de Clisson
+de Coetivy
+de Coligny
+de Comborn
+de Comminges
+de Comps
+de Coucy
+de Courtenay
+de Craon
+de Crepi
+de Cressonsacq
+de Croy
+de Cusance
+de Dammartin
+de Dampierre
+de Dreux
+de Flament
+de Flandre
+de Foix
+de Gael
+de Gisors
+de Gozon
+de Grandson
+de Guines
+de Guise
+de Hainault
+de Harcourt
+de Joinville
+de Juliac
+de Juliers
+de l Etang
+de la Chapelle
+de la Jaille
+de la Marche
+de la Roche
+de la Rochefoucauld
+de la Tour
+de la Tremoille
+de Laci
+de Lalaing
+de Laval
+de Ligne
+de Longueville
+de Lorraine
+de Lusignan
+de Luxembourg
+de Lyon
+de Male
+de Marigny
+de Mauleon
+de Mauvoisin
+de Mello
+de Melun
+de Melval
+de Mercoeur
+de Mezieres
+de Milly
+de Molay
+de Montaigu
+de Montauban
+de Montault
+de Montbard
+de Montfaucon
+de Montferrat
+de Montfort
+de Montlhery
+de Montmorency
+de Montpierre
+de Montreuil
+de Montsault
+de Moret
+de Mortemer
+de Moulins
+de Namur
+de Neufchatel
+de Nevers
+de Nogaret
+de Payens
+de Penthievre
+de Perigord
+de Plessis
+de Poitiers
+de Poitou
+de Polignac
+de Pompadour
+de Pons
+de Ponthieu
+de Provence
+de Rais
+de Rayneval
+de Reims
+de Renesse
+de Reviers
+de Richemont
+de Ridefort
+de Rocafolio
+de Rochefort
+de Ros
+de Roucy
+de Rouergue
+de Sable
+de Saint Clair
+de Saint Germein
+de Saint-Amand
+de Saint-Michel
+de Saint-Omer
+de Saint-Pol
+de Sainte Helene
+de Sancerre
+de Savoie
+de Sevry
+de Soissons
+de Sonnac
+de Tancarville
+de Thibouville
+de Thouars
+de Toroge
+de Toulouse
+de Tournai
+de Tremelay
+de Trie
+de Troyes
+de Valentinois
+de Valois
+de Vaudenay
+de Vendome
+de Vermandois
+de Vertain
+de Vexin
+de Vienne
+de Vignolles
+de Vilaines
+de Villaret
+de Villehardouin
+de Villeneuve
+de Wavrin
+de Xaintrailles
+des Barres
+des Baux
+des Vaux
+du Fay
+du Gi
+du Guesclin
+du Perche
+du Quesnai
+du Terrail
+Dupuy
+Erail
+Espec
+Febre 
+Flambard
+Flote
+Fossard
+Gaudin
+Gonzague
+Greslet
+Grisgonelle
+Guernon
+Hogolin
+Horal
+Hugues
+Hurepel
+Itier
+Jourdain
+la Chèvre
+la Cleve
+la Hire
+le Breton
+le Despensier
+le Roy
+Maminot
+Mantel
+Maquereau
+Mauclerc
+Modave
+Morin
+Murdac
+Pastforeire
+Pot
+Poton
+Royier
+Saisset
+Seguis
+Sorel
+Taillebois
+Talvas
+Tanlay
+Tirel
+Tristan
+Vis-de-Loup

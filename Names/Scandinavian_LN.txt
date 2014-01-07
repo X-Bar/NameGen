@@ -1,0 +1,240 @@
+Adeler
+Arneborg
+Asbjornsen
+Asgersen
+Asmundsen
+Assenbjerg
+Bard
+Beleson
+Benediktsen
+Bengtsson
+Berg
+Bernhardsen
+Bille
+Birgersen
+Birk
+Bjaelke
+Bjarkesen
+Bjornsen
+Bjornsson
+Bluetooth
+Bolt
+Bolverksson
+Brodersen
+Budlesen
+Buesen
+Burmeister
+Chemnitz
+Christensen
+Christiansen
+Christoffersen
+Dannemand
+Darre
+Degn
+Ditlevsen
+Due
+Ebbesen
+Edmundsen
+Egilsen
+Eigod
+Eliassen
+Emundsson
+Ericsson
+Eriksen
+Erlandsen
+Esbensen
+Eskildsen
+Falk
+Fallingborg
+Finnsen
+Fjord
+Flosason
+Folkesen
+Forkbeard
+Frederiksen
+Fredskild
+Friis
+Fritjofsen
+Galle
+Galt
+Gammelgard
+Gedde
+Gerhardtsen
+Giedde
+Gille
+Godfredsen
+Gormsen
+Grathe
+Guddrodson
+Gunnarsen
+Gunnarsson
+Gustafsen
+Guthormsen
+Gyldenstjerne
+Haengsson
+Hagbardsen
+Hakonsen
+Halfdansen
+Hanssen
+Haraldsen
+Haraldsson
+Hariksen
+Hemmingsen
+Henriksen
+Henriksson
+Herbertsen
+Hildetand
+Hjaltesen
+Holck
+Holgersen
+Holm
+Holsten
+Horby
+Hrafnsson
+Hunger
+Hunmark
+Hunthjofson
+Hvas
+Hvass
+Hviid
+Hylgaard
+Ingesen
+Ingolfsen
+Ingvarsen
+Ironside
+Jacobsen
+Jakobsen
+Jarl
+Jenssen
+Johannsen
+Jorgensen
+Kamp
+Kas
+Kiil
+Knudsen
+Konradsen
+Kristiansen
+Kristoffersen
+Lam
+Lehtonen
+Loftsson
+Lundvid
+Magnussen
+Marsvin
+Masson
+Menved
+Mikkelsen
+Milling
+Moesgaard
+Mogenssen
+Mortensen
+Mule
+Munk
+Nevjolvson
+Nielssen
+of Aalborg
+of Ans
+of Bogense
+of Byggland
+of Copenhagen
+of Dragor
+of Eikey
+of Esbjerg
+of Faborg
+of Grena
+of Grindsted
+of Haderslev
+of Hadsund
+of Herning
+of Holmr
+of Horsens
+of Jyllinge
+of Kalundborg
+of Kleppr
+of Koge
+of Kollr
+of Laughamarr
+of Lokken
+of Marstal
+of Nakskov
+of Nanortalik
+of Nordby
+of Qaanaq
+of Runavik
+of Sandarr
+of Sikrum
+of Skolhamarr
+of Skyttingi
+of Svalunes
+of Svanabyr
+of Swendborg
+of Tasiilaq
+of Tonder
+of Tvoroyri
+of Valdinga
+of Varde
+of Ve
+of Vestmanna
+of Vikhus
+of Vojens
+Olufsen
+Orvendilson
+Ostby
+Oxe
+Pedersen
+Poulsen
+Raefillsson
+Ragnarsen
+Ravn
+Roarsen
+Romer
+Rosen
+Sigfredsen
+Sigmundsen
+Sigtrygsen
+Sivardsen
+Skaaning
+Skeel
+Skeggjason
+Skotkonung
+Skovgaard
+Skovgard
+Skytte
+Slembe
+Slyngebard
+Soerensen
+Solvager
+Sparre
+Stenger
+Stenkilsson
+Stensen
+Storegaard
+Storgard
+Stubbe
+Stuer
+Sturlasson
+Sunesen
+Surtsson
+Svendsen
+Tarnovius
+Teglbjaerg
+Telling
+Thodberg
+Thomsen
+Thorkell
+Thorkildsen
+Thornom
+Thorrodson
+Tjorvason
+Tornekrans
+Tryggvasson
+Tuesen
+Tygesen
+Ubbesen
+Ulfsen
+Ulfstand
+Urup
+Valdemarsen
+Vermundsen
+Vilhelmsen
+Willadsen
