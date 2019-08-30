@@ -16,6 +16,14 @@ except ImportError:
     # Python3
     import tkinter
 
+
+# to do
+## make file name prefix so IgnoreFileList can go away
+## add text block of prior generated names so they are not forgotten 
+### Ex: 
+### 2: Male English Henry Green
+### 1: Female English Tillote Davies
+
 IgnoreFileList = ['NameGen.py', 'NameGen.pyc', 'NameGen.exe', 'dist', 'build' 'dis\\', 'buid\\', '\dis', '\buid', '/dis', '/buid', 'dis/', 'buid/', 'NameGen.exe - Shortcut', 'NameGen.exe - Shortcut.lnk', 'NameGen.lnk', 'setup.py']
 
 #~ http://stackoverflow.com/questions/845058/how-to-get-line-count-cheaply-in-python
