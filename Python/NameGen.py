@@ -16,10 +16,12 @@ except ImportError:
     # Python3
     import tkinter
 
+# done recently 
+## (Y2019 M09 D03) make file name prefix so IgnoreFileList can go away
+## (Y2019 M09 D03)add text block of prior generated names so they are not forgotten 
 
 # to do
-## make file name prefix so IgnoreFileList can go away
-## add text block of prior generated names so they are not forgotten 
+
 ### Ex: 
 ### 2: Male English Henry Green
 ### 1: Female English Tillote Davies
@@ -42,11 +44,13 @@ def PrintRandomName(UserNameType, UserGenderType):
 	success = 0													# success int flag (2 is success)
 	i = 0														# reset counter
 	for FileName in dirList:
-		if FileName != ('NameGen.py' or 'NameGen.pyc'):
+		#~ if FileName != ('NameGen.py' or 'NameGen.pyc'):
+		NameSplit = FileName.split('_');
+		if NameSplit[0] == 'NameFile': 							# file name is prefixed with NameFile_
 			#~ print FileName
-			NameSplit = FileName.split('_');
-			if NameSplit[0].upper() == UserNameType.upper():	# make sure file type is whats desired (culture)
-				FileType =  NameSplit[1]
+			
+			if NameSplit[1].upper() == UserNameType.upper():	# make sure file type is whats desired (culture)
+				FileType =  NameSplit[2]
 				if FileType[0] == 'F':							# make sure if first name
 					if FileType[1] == UserGenderType.upper():	# pick right gender type
 						#~ print 'yes' # get random first name
@@ -72,7 +76,8 @@ def PrintRandomName(UserNameType, UserGenderType):
 
 	if success == 2:
 		#~ print NewFirstName.strip('\n') + ' ' + NewLastName	# print new name, strip reline 
-		return NewFirstName.strip('\n') + ' ' + NewLastName
+		#~ return NewFirstName.strip('\n') + ' ' + NewLastName
+		return NewFirstName.strip(os.linesep) + ' ' + NewLastName
 	else:
 		return 'Error: name files not found'
 
@@ -110,31 +115,42 @@ class simpleapp_tk(Tkinter.Tk):
         labelGen = Tkinter.Label(self,textvariable=self.labelGenderType, anchor="w")
         labelGen.grid(column=0,row=1, columnspan=2, sticky='EW')
         self.labelGenderType.set(u"Enter gender:")
-        
+		
         # label output title
         self.labelOutPutTitle = Tkinter.StringVar()
         labelOuttitle = Tkinter.Label(self,textvariable=self.labelOutPutTitle, anchor="w")
         labelOuttitle.grid(column=0,row=3, columnspan=2, sticky='EW')
         self.labelOutPutTitle.set(u"Random Name:")
-
+		
 		# label output name
         self.labelOutputString = Tkinter.StringVar()
         labelOutput = Tkinter.Entry(self,textvariable=self.labelOutputString)
         labelOutput.grid(column=2,row=3, columnspan=2, sticky='EW')
         self.labelOutputString.set(u"name name")
         
+        # label old names space
+        self.labelOldOutputString = Tkinter.StringVar()
+        labelOldOutput = Tkinter.Label(self,textvariable=self.labelOldOutputString, justify='left')
+        labelOldOutput.grid(column=0,row=4, columnspan=4, rowspan=3, sticky='EW')
+        self.labelOldOutputString.set(u"")
+        
         self.grid_columnconfigure(8,weight=1)
         self.resizable(True,True)
         #~ self.update()
         #~ self.geometry(self.geometry())    
-
+		
 		### entry widget type & change choices
     def MakeChoices(self):
 		self.choices = ListOfNewTypes
 		self.TypeChoice = Tkinter.StringVar(self)
-		self.TypeChoice .set(self.choices[0])
+		
+		if len(self.choices) < 1:
+			print ('Choices are empty! Exiting!!!')
+			exit(1)
+		
+		self.TypeChoice.set(self.choices[0])
 		#~ self.typeMenu = Tkinter.OptionMenu(self, self.typeMenu, *self.choices)
-		self.typeMenu = Tkinter.StringVar()
+		self.typeMenu =  	()
 		self.typeMenu = Tkinter.OptionMenu(self, self.TypeChoice, *self.choices)
 		self.typeMenu.grid(column=2,row=0,columnspan=2, sticky='EW')
 		
@@ -142,6 +158,13 @@ class simpleapp_tk(Tkinter.Tk):
         #~ self.labelVariable.set( self.entryVariable.get()+" (You clicked the button)" )
         FinalOutput = PrintRandomName(self.TypeChoice.get(), self.Gender.get())
         self.labelOutputString.set(FinalOutput)
+        self.AddToOldList(FinalOutput)
+        
+    def AddToOldList(self, AddText):
+        self.labelOldOutputString.set(self.TypeChoice.get() + " " +  self.Gender.get() + ":    " + AddText + self.labelOldOutputString.get())
+        return
+		
+		
 
 ### MAIN
 if __name__ == "__main__":
@@ -154,17 +177,20 @@ if __name__ == "__main__":
 	dirList = os.listdir(CurDir)								# get all file names in cwd
 	for FileName in dirList:									# for all elements in directory list
 		#if FileName !=  ('NameGen.py' or 'NameGen.pyc'):		# make sure we are not reading the script file
-		if any(FileName in s for s in IgnoreFileList):	# find out if type is known
-			pass
-		else:
-			# all name files have 1 underscore seperating culture type and first/last & gender
-			NameSplit = FileName.split('_');
-			if any(NameSplit[0] in s for s in ListOfNewTypes):	# find out if type is known
+		#~ if any(FileName in s for s in IgnoreFileList):		# find out if type is known
+			#~ pass
+		#~ else:
+		
+		# all name files have 1 underscore seperating culture type and first/last & gender
+		NameSplit = FileName.split('_');
+		if NameSplit[0] == 'NameFile':
+			#~ print ('Found FileName: %s' %(FileName))
+			if any(NameSplit[1] in s for s in ListOfNewTypes):	# find out if type is known
 				pass
 			else:	
 				i += 1
 				#~ ListOfNewTypes[i] = NameSplit[0]
-				ListOfNewTypes.extend([NameSplit[0]])			# add new type
+				ListOfNewTypes.extend([NameSplit[1]])			# add new type
 	
 	# prepare gui
 	app = simpleapp_tk(None)
