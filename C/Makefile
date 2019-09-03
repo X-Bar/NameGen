@@ -1,16 +1,8 @@
+CXXFLAGS = -Wall -Werror -std=c++11
+default: build
 
-CC = gcc -g
-INCLUDE = /usr/local/include
-LIBS = -lboost_system -lboost_date_time -lboost_thread
-binaries = NameGen 
-
-default: clean NameGen
-
-clean:
-	$(RM) NameGen
-
-NameGen: NameGen.cpp
-	g++ NameGen.cpp $(LIBS) -o NameGen
+build: NameGen
 
 
-
+run: build
+	./NameGen
