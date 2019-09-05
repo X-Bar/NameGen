@@ -118,7 +118,7 @@ public: // public methods
 		pdir = opendir ("."); 										// "." will refer to the current directory
 		if (pdir == NULL) 											// if pdir wasn't initialised correctly
 		{ 															// print an error message and exit the program
-			printf ("ERROR! pdir could not be initialised correctly\n");
+			//~ printf ("ERROR! pdir could not be initialised correctly\n");
 			//~ exit (2);	 											// exit the program, using 2 as the status (most common for a failed execution)
 			OutputSet.insert("ERROR! pdir could not be initialised correctly");
 			return 2;
@@ -138,11 +138,11 @@ public: // public methods
 			std::vector<std::string> NameSplit = SplitString(FileName, '_');
 			if ( (NameSplit.size() < 3) )
 			{	
-				printf("File \"%s\" not NameFile. Not dilimited correctly.\n", FileName.c_str());
+				fprintf(stderr, "File \"%s\" not a NameFile. Not dilimited correctly. Ignoring.\n", FileName.c_str());
 			}
 			else if (NameSplit[0] != "NameFile")
 			{
-				printf("File \"%s\"not NameFile. Incorrect prefix.\n", FileName.c_str());
+				fprintf(stderr, "File \"%s\"not a NameFile. Incorrect prefix. Ignoring.\n", FileName.c_str());
 			}
 			else
 			{
@@ -183,7 +183,6 @@ public: // public methods
 		std::string FileNameFirst = "NameFile_" + ReqCulture + "F" + ReqSex;
 		std::string FileNameLast = "NameFile_" + ReqCulture + "LN";
 		
-		
 		// Get rand name first
 		std::string NameFirst;
 		res = GetRandLine(FileNameFirst, NameFirst);
@@ -221,7 +220,7 @@ public: // public methods
 
 void PrintUsage(void)
 {
-	printf("Usage: \n");
+	fprintf(stderr, "Usage: \n");
 }
 
 
@@ -231,7 +230,8 @@ int main(int argc, char **argv)
 	
 	if ( 2 > argc || argc > 3 ) 									// check for minimum input
 	{
-			printf("Error! Request minimum of 1 input and maxium of 2 inputs. Inputs given: %d\n", argc-1);
+			//~ printf("Error! Request minimum of 1 input and maxium of 2 inputs. Inputs given: %d\n", argc-1);
+			fprintf(stderr, "Error! Request minimum of 1 input and maxium of 2 inputs. Inputs given: %d\n", argc-1);
 			PrintUsage();
 			return 1;        
 	}
@@ -246,7 +246,7 @@ int main(int argc, char **argv)
 		
 		if (strlen(argv[2]) > 1)
 		{
-			printf("ERROR! Sex input can only be 1 char long.\n");
+			fprintf(stderr, "ERROR! Sex input can only be 1 char long.\n");
 			PrintUsage();
 			return 2;
 		}
@@ -273,20 +273,20 @@ int main(int argc, char **argv)
 			printf("Cultures: \n");
 			for (auto i : CultureSet)
 			{
-				printf("%s \n", i.c_str());
+				fprintf(stderr, "%s \n", i.c_str());
 			}
-			printf(" \n");
+			fprintf(stderr, " \n");
 		}
 		else
 		{
 			//~ std::set<std::string>::iterator Error = CultureList.begin();
 			//~ printf("Could not read Cultures. Error Code %d. Error: %s\n", res, (*Error).c_str() );
-			printf("ERROR! Could not read Cultures. Error Code %d. Errors: \n", res);
+			fprintf(stderr, "ERROR! Could not read Cultures. Error Code %d. Errors: \n", res);
 			for (auto i : CultureSet)
 			{
-				printf("%s \n", i.c_str());
+				fprintf(stderr, "%s \n", i.c_str());
 			}
-			printf(" \n");
+			fprintf(stderr, " \n");
 			return 3;
 		}
 	}
