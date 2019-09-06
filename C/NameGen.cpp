@@ -25,9 +25,13 @@ Y2019 M09 D03        Updating file with features and STL
 #include <stdlib.h>
 #include <errno.h>
 
+#include <random>
+#include <fstream>
 #include <vector>
 #include <string>
 #include <set>
+//~ #include <algorithm>
+//~ #include <locale>
 
 //~ #include "boost/filesystem/operations.hpp"
 //~ #include "boost/filesystem/path.hpp"
@@ -79,15 +83,35 @@ private: // private methods
 		return ErrorString;
 	}
 	
-	int GetRandLine (std::string FileName, std::string ReturnName)
+	int GetRandLine (std::string& FileName, std::string& ReturnName)
 	{
-		// Open first file
+		std::vector<std::string> Names;
+		std::string LineTxt;
+		// Open file
+		std::ifstream FileH(FileName);
+		if ( !(FileH.is_open()) )
+		{
+			ReturnName.append("ERROR! Failed to open file \"" + FileName + "\"");
+			return 1; 
+		}
 		
 		// get number of lines in first file
+		while (getline(FileH, LineTxt))
+		{
+			//~ printf("Name: %s", LineTxt.c_str());
+			Names.insert(Names.end(), LineTxt); 					// get all names
+		}
 		
-		// generate random number between 1 and number of lines
+		// generate random number between 1 and number of lines 
+		// https://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_int_distribution<> dis(0, (int)Names.size());
+		int RandomNum = dis(gen);
+		//~ printf("num of lines %zd, random number %d\n", Names.size(), RandomNum);
 		
 		// get the line number corresponding to rand num
+		ReturnName = Names[RandomNum];
 		
 		return 0;
 	}
@@ -179,16 +203,19 @@ public: // public methods
 			ReturnName.append(ConstructErrorStringFromSet(CultureSet));
 			return res;
 		}
+		
 		// construct file names
-		std::string FileNameFirst = "NameFile_" + ReqCulture + "F" + ReqSex;
-		std::string FileNameLast = "NameFile_" + ReqCulture + "LN";
+		std::string FileNameFirst = "NameFile_" + ReqCulture + "_F" + ReqSex + ".txt";
+		std::string FileNameLast = "NameFile_" + ReqCulture + "_LN" + ".txt";
+		//~ printf("First NameFile: %s\n", FileNameFirst.c_str());
+		//~ printf("Last NameFile: %s\n", FileNameLast.c_str());
 		
 		// Get rand name first
 		std::string NameFirst;
 		res = GetRandLine(FileNameFirst, NameFirst);
-		if (!res)
+		if (res)
 		{
-			ReturnName.append("ERROR! numbered errors: 0: ERROR! Cannot get random First name. 1:");
+			ReturnName.append("ERROR! numbered errors: 0: ERROR! Cannot get random First name. 1: ");
 			ReturnName.append(NameFirst);
 			return res;
 		}
@@ -196,9 +223,9 @@ public: // public methods
 		// Get rand name last
 		std::string NameLast;
 		res = GetRandLine(FileNameLast, NameLast);
-		if (!res)
+		if (res)
 		{
-			ReturnName.append("ERROR! numbered errors: 0: ERROR! Cannot get random Last name. 1:");
+			ReturnName.append("ERROR! numbered errors: 0: ERROR! Cannot get random Last name. 1: ");
 			ReturnName.append(NameFirst);
 			return res;
 		}
@@ -220,13 +247,51 @@ public: // public methods
 
 void PrintUsage(void)
 {
-	fprintf(stderr, "Usage: \n");
+	fprintf
+	(stderr, "usage: NameGen request [sex] \n\n"
+				
+			"Request: set or culture.\n"
+				"\tSet: request set of avaliable cultures.\n"
+				"\tCulture: request random name of given culture type. Acceptable culture types are given by set command.\n\n"
+				
+			"Sex: only for culture name request. For a culture random name request a sex must be given.\n"
+				"\tEnter either M or F. \n\n"
+				
+			"Examples: \n"
+			"NameGen set\n"
+			"NameGen English F"
+			"NameGen French M"	
+	);
+}
+
+
+//~ std::string UpperCase(std::string& Input)
+void UpperCase(std::string& Input)
+{
+    //~ char ch = 0;
+    //~ std::string Output(Input.length(), 'X');
+    for(size_t i=0; i < Input.length(); i++)
+    {
+        if(Input[i]>=97 && Input[i]<=122)
+        {
+            //~ ch=Input[i]-32;
+            Input[i]=Input[i]-32;
+        }
+        //~ else
+        //~ {
+            //~ ch = Input[i];
+        //~ }
+        //~ Output[i] = ch;
+    }
+	//~ printf("%s\n", Input.c_str());
+	//~ Input =  Output;
+	//~ return Output;
 }
 
 
 int main(int argc, char **argv)
 {
-	printf("Recieved request. Number of inputs: %d\n", argc-1);
+	//~ printf("Recieved request. Number of inputs: %d\n", argc-1);
 	
 	if ( 2 > argc || argc > 3 ) 									// check for minimum input
 	{
@@ -235,33 +300,45 @@ int main(int argc, char **argv)
 			PrintUsage();
 			return 1;        
 	}
+	std::vector<std::string> ProgInputs(argc-1);
 	for (int i = 1; i < argc; i++) 									// print input
 	{
-		printf("Arg #%d of %d: %s\n", i, argc-1, argv[i]); 			// first input is filename, ignore 
+		//~ ProgInputs.insert(myvector.end(), argv[i]);
+		ProgInputs[i-1] = argv[i];
+		//~ std::transform(ProgInputs.begin(), ProgInputs.end(), ProgInputs.begin(), (int (*)(int))std::toupper); 
+		//~ for (auto & c: ProgInputs) c = (char)::toupper(c);
+		//~ UpperCase(ProgInputs[i-1]);
+		//~ printf("Arg #%d of %d: %s\n", i, argc-1, argv[i]); 			// first input is filename, ignore 
+		//~ printf("Arg #%d of %d: %s\n", i, argc-1, ProgInputs[i-1].c_str()); 	// first input is filename, ignore 
+		
 	}
 	
-	if (argc-1 > 1) 												// 1 input = get set, 2 input = get name
+	if ((ProgInputs.size() == 2) && ( ProgInputs[1].length() == 1 )) // 1 input = get set, 2 input = get name
 	{
 		printf("Getting random name\n");
-		
-		if (strlen(argv[2]) > 1)
-		{
-			fprintf(stderr, "ERROR! Sex input can only be 1 char long.\n");
-			PrintUsage();
-			return 2;
-		}
-		
-		
-		
+		//~ if (strlen(argv[2]) > 1)
+		//~ {
+			//~ fprintf(stderr, "ERROR! Sex input can only be 1 char long.\n");
+			//~ PrintUsage();
+			//~ return 2;
+		//~ }
 		GenFileNames GFN;
-		std::string ReqCulture(argv[1]);
-		std::string ReqSex("M");
+		std::string ReqCulture(ProgInputs[0]);
+		std::string ReqSex(ProgInputs[1]);
 		std::string Name;
+		
 		//~ int res = GFN.GetRandName("English", 'M', Name);
 		int res = GFN.GetRandName(ReqCulture, ReqSex, Name);
-		printf("NAME: %d %s\n", res, Name.c_str());
+		if (res)
+		{
+			fprintf(stderr, "ERROR! Failed to get random name. Code: %d. %s\n", res, Name.c_str());
+		}
+		else
+		{
+			printf("%s %s NAME: %s\n", ReqCulture.c_str(), ReqSex.c_str(), Name.c_str());
+		}
 	}
-	else
+	else if((ProgInputs.size() == 1) && ( ProgInputs[0] == "SET" )) // 1 input = get set, 2 input = get name
 	{
 		printf("Getting Culture set list\n");
 		std::set<std::string> CultureSet;
@@ -270,7 +347,7 @@ int main(int argc, char **argv)
 		
 		if (!res)
 		{
-			printf("Cultures: \n");
+			printf("\nCultures: \n\n");
 			for (auto i : CultureSet)
 			{
 				fprintf(stderr, "%s \n", i.c_str());
@@ -279,8 +356,6 @@ int main(int argc, char **argv)
 		}
 		else
 		{
-			//~ std::set<std::string>::iterator Error = CultureList.begin();
-			//~ printf("Could not read Cultures. Error Code %d. Error: %s\n", res, (*Error).c_str() );
 			fprintf(stderr, "ERROR! Could not read Cultures. Error Code %d. Errors: \n", res);
 			for (auto i : CultureSet)
 			{
@@ -290,18 +365,12 @@ int main(int argc, char **argv)
 			return 3;
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	else
+	{
+		fprintf(stderr, "ERROR! input error. Use proper input commands. \n"); // likey not using proper key words
+		PrintUsage();
+		return 4;
+	}
 	
 	
     return 0; // everything went OK
