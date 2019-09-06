@@ -323,19 +323,19 @@ int main(int argc, char **argv)
 			//~ return 2;
 		//~ }
 		GenFileNames GFN;
-		std::string ReqCulture(ProgInputs[0]);
-		std::string ReqSex(ProgInputs[1]);
+		//~ std::string ReqCulture(ProgInputs[0]);
+		//~ std::string ReqSex(ProgInputs[1]);
 		std::string Name;
 		
 		//~ int res = GFN.GetRandName("English", 'M', Name);
-		int res = GFN.GetRandName(ReqCulture, ReqSex, Name);
+		int res = GFN.GetRandName(ProgInputs[0], ProgInputs[1], Name);
 		if (res)
 		{
 			fprintf(stderr, "ERROR! Failed to get random name. Code: %d. %s\n", res, Name.c_str());
 		}
 		else
 		{
-			printf("%s %s NAME: %s\n", ReqCulture.c_str(), ReqSex.c_str(), Name.c_str());
+			printf("%s %s NAME: %s\n", ProgInputs[0].c_str(), ProgInputs[1].c_str(), Name.c_str());
 		}
 	}
 	else if((ProgInputs.size() == 1) && ( ProgInputs[0] == "SET" )) // 1 input = get set, 2 input = get name
