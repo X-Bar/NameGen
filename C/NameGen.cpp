@@ -327,7 +327,7 @@ int main(int argc, char **argv)
 		//~ std::string ReqSex(ProgInputs[1]);
 		std::string Name;
 		
-		//~ int res = GFN.GetRandName("English", 'M', Name);
+		//~ int res = GFN.GetRandName("English", 'M', OutputName);
 		int res = GFN.GetRandName(ProgInputs[0], ProgInputs[1], Name);
 		if (res)
 		{
