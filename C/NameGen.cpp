@@ -338,7 +338,7 @@ int main(int argc, char **argv)
 			printf("%s %s NAME: %s\n", ProgInputs[0].c_str(), ProgInputs[1].c_str(), Name.c_str());
 		}
 	}
-	else if((ProgInputs.size() == 1) && ( ProgInputs[0] == "SET" )) // 1 input = get set, 2 input = get name
+	else if((ProgInputs.size() == 1) && ( ProgInputs[0] == "set" )) // 1 input = get set, 2 input = get name
 	{
 		printf("Getting Culture set list\n");
 		std::set<std::string> CultureSet;
