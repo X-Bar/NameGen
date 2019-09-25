@@ -41,7 +41,49 @@ Y2019 M09 D03        Updating file with features and STL
 
 
 
+void PrintUsage(void)
+{
+	fprintf
+	(stderr, "usage: NameGen request [sex] \n\n"
+				
+			"Request: set or culture.\n"
+				"\tSet: request set of avaliable cultures.\n"
+				"\tCulture: request random name of given culture type. Acceptable culture types are given by set command.\n\n"
+				
+			"Sex: only for culture name request. For a culture random name request a sex must be given.\n"
+				"\tEnter either M or F. \n\n"
+				
+			"Examples: \n"
+			"NameGen set\n"
+			"NameGen English F"
+			"NameGen French M"	
+	);
+}
 
+
+//~ std::string UpperCase(std::string& Input)
+std::string UpperCase(std::string& Input)
+{
+    //~ char ch = 0;
+    //~ std::string Output(Input.length(), 'X');
+    for(size_t i=0; i < Input.length(); i++)
+    {
+        if(Input[i]>=97 && Input[i]<=122)
+        {
+            //~ ch=Input[i]-32;
+            Input[i]=Input[i]-32;
+        }
+        //~ else
+        //~ {
+            //~ ch = Input[i];
+        //~ }
+        //~ Output[i] = ch;
+    }
+	//~ printf("%s\n", Input.c_str());
+	//~ Input =  Output;
+	//~ return Output;
+	return Input;
+}
 
 class GenFileNames
 {
@@ -203,9 +245,22 @@ public: // public methods
 			ReturnName.append(ConstructErrorStringFromSet(CultureSet));
 			return res;
 		}
+		if (CultureSet.find(ReqCulture) == CultureSet.end())
+		{
+			ReturnName.append("ERROR! numbered errors: 0: ERROR! Cannot get random name. Requested culture not found. Found cultures are: ");
+			for (auto it : CultureSet)
+			{
+				ReturnName.append(it + ", ");
+			}
+			ReturnName.pop_back();
+			ReturnName.pop_back(); 								// remove final ", "
+			ReturnName.append(". ");
+			return 2;
+		}
+		
 		
 		// construct file names
-		std::string FileNameFirst = "NameFile_" + ReqCulture + "_F" + ReqSex + ".txt";
+		std::string FileNameFirst = "NameFile_" + ReqCulture + "_F" + UpperCase(ReqSex) + ".txt";
 		std::string FileNameLast = "NameFile_" + ReqCulture + "_LN" + ".txt";
 		//~ printf("First NameFile: %s\n", FileNameFirst.c_str());
 		//~ printf("Last NameFile: %s\n", FileNameLast.c_str());
@@ -244,49 +299,6 @@ public: // public methods
 	}
 	
 }; // end class GenFileNames
-
-void PrintUsage(void)
-{
-	fprintf
-	(stderr, "usage: NameGen request [sex] \n\n"
-				
-			"Request: set or culture.\n"
-				"\tSet: request set of avaliable cultures.\n"
-				"\tCulture: request random name of given culture type. Acceptable culture types are given by set command.\n\n"
-				
-			"Sex: only for culture name request. For a culture random name request a sex must be given.\n"
-				"\tEnter either M or F. \n\n"
-				
-			"Examples: \n"
-			"NameGen set\n"
-			"NameGen English F"
-			"NameGen French M"	
-	);
-}
-
-
-//~ std::string UpperCase(std::string& Input)
-void UpperCase(std::string& Input)
-{
-    //~ char ch = 0;
-    //~ std::string Output(Input.length(), 'X');
-    for(size_t i=0; i < Input.length(); i++)
-    {
-        if(Input[i]>=97 && Input[i]<=122)
-        {
-            //~ ch=Input[i]-32;
-            Input[i]=Input[i]-32;
-        }
-        //~ else
-        //~ {
-            //~ ch = Input[i];
-        //~ }
-        //~ Output[i] = ch;
-    }
-	//~ printf("%s\n", Input.c_str());
-	//~ Input =  Output;
-	//~ return Output;
-}
 
 
 int main(int argc, char **argv)
